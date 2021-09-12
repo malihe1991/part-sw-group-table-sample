@@ -1,0 +1,79 @@
+/* container */
+.part-sw-group-table-sample {
+    overflow-x: auto;
+}
+
+
+/* title */
+.part-sw-group-table__title {
+    margin: 20px 0px;
+    text-align: center;
+}
+
+
+/* table */
+.part-sw-group-table {
+    width: 100%;
+    min-width: 600px;
+}
+
+.part-sw-group-table--collapse {
+    border-collapse: collapse;
+}
+
+.part-sw-group-table--no-collapse {
+    border-collapse: unset;
+}
+
+.part-sw-group-table--separate {
+    border-collapse: separate;
+}
+
+.part-sw-group-table--border-spacing {
+    border-spacing: 0cm 2em;
+}
+
+
+/* row */
+.part-sw-group-table__row--bg-even-child:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.part-sw-group-table__row--bg-odd-child:nth-child(odd) {
+    background-color: #dddddd;
+}
+
+.part-sw-group-table__row--hover:hover {
+    background-color: rgba(0,0,0,.075);
+}
+
+
+/* cell */
+.part-sw-group-table__cell {
+    padding: 8px;
+}
+
+.part-sw-group-table__cell--head {
+    font-weight: 600;
+}
+
+.part-sw-group-table__cell--center {
+    text-align: center;
+}
+
+.part-sw-group-table__cell--right {
+    text-align: right;
+}
+
+.part-sw-group-table__cell--bordered {
+    border: 1px solid #dddddd;
+}
+
+
+/* icon */
+.part-sw-group-table__sort-icon {
+    font-size: 16px;
+    margin: 0px 8px;
+    cursor: pointer;
+    color: #727272;
+}
