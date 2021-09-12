@@ -116,7 +116,7 @@ export default Vue.extend({
       backgroundChild="odd"
       textAlign="center"
     >
-      <span slot="icon">dddd</span>
+      <span slot="icon">>></span>
     </part-sw-group-table-sample>
   </div>
 </template>

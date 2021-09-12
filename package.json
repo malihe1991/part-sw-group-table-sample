@@ -1,5 +1,5 @@
 {
-  "name": "part-sw-group-table-simple",
+  "name": "part-sw-group-table-sample",
   "version": "0.0.1",
   "description": "",
   "main": "dist/part-sw-group-table.ssr.js",
