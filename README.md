@@ -1,6 +1,6 @@
 # Part-sw-group-table-sample
 
-It is a dynamic table with sorting and filtering capability for Vue.js 😊
+It is a dynamic table with sorting and filtering capability for Vue.js
 
 ## Installation
 

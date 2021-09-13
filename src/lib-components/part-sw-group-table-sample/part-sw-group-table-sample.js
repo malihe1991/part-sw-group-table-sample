@@ -24,6 +24,17 @@ export default {
         backgroundChild: String,
         textAlign: String
     },
+    methods: {
+        updateData() {
+            this.newItems = this.items;
+            this.newFields = this.fields;
+            this.filterValue = this.filterBy.length ? this.filterBy[0] : '';
+            this.filterInputValue = '';
+        }
+    },
+    mounted(){
+        this.updateData()
+    },
     updated() {
         this.newItems = this.items
     },
