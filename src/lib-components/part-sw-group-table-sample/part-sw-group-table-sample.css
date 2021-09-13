@@ -1,6 +1,8 @@
 /* container */
 .part-sw-group-table-sample {
     overflow-x: auto;
+    direction: rtl;
+    text-align: right;
 }
 
 
@@ -8,6 +10,40 @@
 .part-sw-group-table__title {
     margin: 20px 0px;
     text-align: center;
+}
+
+
+/* filter */
+.part-sw-group-table__filter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.part-sw-group-table__filter-wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.part-sw-group-table__filter-select {
+    display: flex;
+    background-color: transparent;
+    border-radius: 3px;
+    min-width: 200px;
+    margin: 20px 5px;
+}
+
+.part-sw-group-table__filter-select:focus-visible {
+    outline: unset;
+}
+
+.part-sw-group-table__filter-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.part-sw-group-table__filter-input {
+    margin: 20px 5px;
 }
 
 

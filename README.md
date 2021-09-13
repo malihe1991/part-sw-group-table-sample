@@ -82,7 +82,6 @@ data() {
 <part-sw-group-table-sample
     title="اطلاعات کاربران"
     :fields="['وزن', 'سن', 'جنسیت','نام']"
-    :rowIndex="true" // add index column
     :bordered="true"
     :hover="true"
     :borderSpacing="false"

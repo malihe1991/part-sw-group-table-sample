@@ -6,108 +6,136 @@ export default Vue.extend({
   data() {
     return {
       isAsc: false,
-      newItems: [
-        { weight: 60, age: 20, gender: 'female', name: 'ملیحه',},
-        { weight: 40, age: 29, gender: 'male', name: 'میلاد'},
-        { weight: 36, age: 14, gender: 'female', name: 'صدف'}
-      ]
+      orginalItems: [
+        { weight: 60, age: 20, gender: "female", name: "ملیحه" },
+        { weight: 40, age: 29, gender: "male", name: "میلاد" },
+        { weight: 36, age: 14, gender: "female", name: "صدف" },
+      ],
+      dublicateItems: [
+        { weight: 60, age: 20, gender: "female", name: "ملیحه" },
+        { weight: 40, age: 29, gender: "male", name: "میلاد" },
+        { weight: 36, age: 14, gender: "female", name: "صدف" },
+      ],
     };
   },
   methods: {
-        sort(type, fieldName) {
-            switch (`${type}`) {
-                case 'number':
-                    this.sortNumber(fieldName);
-                    break;
-                case 'string':
-                    this.sortString(fieldName);
-                    break;
-                default:
-                    this.sortNumber(fieldName);
-            }
-        },
+    search(filed, inputValue) {
+      this.list = [];
+      this.dublicateItems.forEach((item) => {
 
-        sortNumber(fieldName) {
-            const isAsc = this.isAsc;
+        const itemValue = item[filed].toString();
+        const value = inputValue.toString();
 
-            this.newItems.sort((a, b) => {
+        if (itemValue.includes(value)) {
+          this.list.push(item);
+          this.orginalItems = this.list;
+        } else {
+          this.orginalItems = this.list;
+        }
 
-                const firstUser = isAsc ? a[fieldName] : b[fieldName];
-                const secondUser = isAsc ? b[fieldName] : a[fieldName]
+        if (inputValue === "") {
+          this.orginalItems = this.dublicateItems;
+        }
+      });
+    },
 
-                this.isAsc = !isAsc;
+    sort(type, fieldName) {
+      switch (`${type}`) {
+        case "number":
+          this.sortNumber(fieldName);
+          break;
+        case "string":
+          this.sortString(fieldName);
+          break;
+        default:
+          this.sortNumber(fieldName);
+      }
+    },
 
-                return firstUser - secondUser;
-            })
-        },
+    sortNumber(fieldName) {
+      const isAsc = this.isAsc;
 
-        sortString(fieldName) {
-            const englishRegex = new RegExp(/^[A-Za-z]+$/);
-            const persianRegex = new RegExp(/^[آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ ]+$/);
+      this.orginalItems.sort((a, b) => {
+        const firstUser = isAsc ? a[fieldName] : b[fieldName];
+        const secondUser = isAsc ? b[fieldName] : a[fieldName];
 
-            if (this.newItems[0][fieldName].match(persianRegex)) {
-                this.sortPersianAlpha(fieldName);
-            }
+        this.isAsc = !isAsc;
 
-            else if (this.newItems[0][fieldName].match(englishRegex)) {
-                this.sortEnglishAlpha(fieldName);
-            }
-        },
+        return firstUser - secondUser;
+      });
+    },
 
-        sortEnglishAlpha(fieldName) {
-            const isAsc = this.isAsc;
+    sortString(fieldName) {
+      const englishRegex = new RegExp(/^[A-Za-z]+$/);
+      const persianRegex = new RegExp(
+        /^[آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ ]+$/
+      );
 
-            this.newItems.sort((a, b) => {
+      if (this.orginalItems[0][fieldName].match(persianRegex)) {
+        this.sortPersianAlpha(fieldName);
+      } else if (this.orginalItems[0][fieldName].match(englishRegex)) {
+        this.sortEnglishAlpha(fieldName);
+      }
+    },
 
-                const firstUser = isAsc ? a[fieldName].toLowerCase() : b[fieldName].toLowerCase();
-                const secondUser = isAsc ? b[fieldName].toLowerCase() : a[fieldName].toLowerCase();
+    sortEnglishAlpha(fieldName) {
+      const isAsc = this.isAsc;
 
-                if (firstUser < secondUser) {
-                    this.isAsc = !isAsc;
-                    return -1;
-                }
+      this.orginalItems.sort((a, b) => {
+        const firstUser = isAsc
+          ? a[fieldName].toLowerCase()
+          : b[fieldName].toLowerCase();
+        const secondUser = isAsc
+          ? b[fieldName].toLowerCase()
+          : a[fieldName].toLowerCase();
 
-                if (firstUser > secondUser) {
-                    this.isAsc = !isAsc;
-                    return 1;
-                }
+        if (firstUser < secondUser) {
+          this.isAsc = !isAsc;
+          return -1;
+        }
 
-                this.isAsc = !isAsc;
-                return 0;
-            })
-        },
+        if (firstUser > secondUser) {
+          this.isAsc = !isAsc;
+          return 1;
+        }
 
-        sortPersianAlpha(fieldName) {
-            const isAsc = this.isAsc;
+        this.isAsc = !isAsc;
+        return 0;
+      });
+    },
 
-            this.newItems.sort((a, b) => {
+    sortPersianAlpha(fieldName) {
+      const isAsc = this.isAsc;
 
-                const firstUser = isAsc ? a[fieldName] : b[fieldName];
-                const secondUser = isAsc ? b[fieldName] : a[fieldName];
+      this.orginalItems.sort((a, b) => {
+        const firstUser = isAsc ? a[fieldName] : b[fieldName];
+        const secondUser = isAsc ? b[fieldName] : a[fieldName];
 
-                this.isAsc = !isAsc;
+        this.isAsc = !isAsc;
 
-                return firstUser.localeCompare(secondUser);
-            })
-        },
-    }
+        return firstUser.localeCompare(secondUser);
+      });
+    },
+  },
 });
 </script>
 
 <template>
   <div id="app">
     <part-sw-group-table-sample
-      title="جدول من"
+      title="اطلاعات کاربر"
       :fields="[
         {key: 'weight', type: 'number', value: 'وزن'},
         {key: 'age', type: 'number',  value: 'سن'},
         {key: 'gender', type: 'string',  value: 'جنسیت'},
         {key: 'name', type: 'string',  value: 'نام'}
       ]"
-      :items="newItems"
+      :items="orginalItems"
       :isSort="true"
       :sortIcon="false"
       :handleSort="sort"
+      :filterBy="['name', 'age']"
+      :handleFilter="search"
       :rowIndex="true"
       :bordered="true"
       :hover="true"
@@ -116,7 +144,7 @@ export default Vue.extend({
       backgroundChild="odd"
       textAlign="center"
     >
-      <span slot="icon">>></span>
+      <span slot="icon">^</span>
     </part-sw-group-table-sample>
   </div>
 </template>

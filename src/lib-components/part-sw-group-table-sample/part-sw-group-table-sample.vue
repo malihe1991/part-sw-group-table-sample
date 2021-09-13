@@ -2,6 +2,23 @@
   <div class="part-sw-group-table-sample">
     <h2 class="part-sw-group-table__title">{{title}}</h2>
 
+    <div class="part-sw-group-table__filter">
+      <div class="part-sw-group-table__filter-wrapper">
+        <label class="part-sw-group-table__filter-label">فیلتر براساس:</label>
+        <select class="part-sw-group-table__filter-select" v-model="filterValue" :selected="filterValue">
+          <option v-for="(feild, index) in filterBy" :key="index" :value="feild">{{feild}}</option>
+        </select>
+      </div>
+
+      <input
+        class="part-sw-group-table__filter-input"
+        type="text" 
+        v-model="filterInputValue" 
+        @input="handleFilter(filterValue, filterInputValue);" 
+        placeholder="جستجو..." 
+    />
+    </div>
+
     <table
       class="part-sw-group-table"
       :class="{
@@ -29,10 +46,7 @@
           :key="index"
         >
           <span>{{isSort ? field.value : field}}</span>
-          <span
-            class="part-sw-group-table__sort-icon"
-            @click="handleSort(field.type, field.key)"
-          >
+          <span class="part-sw-group-table__sort-icon" @click="handleSort(field.type, field.key)">
             <span v-if="sortIcon">&uarr;&darr;</span>
             <slot name="icon" v-if="!sortIcon"></slot>
           </span>
@@ -61,7 +75,6 @@
         >{{cell}}</td>
       </tr>
     </table>
-    <div>{{addRowIndex}}</div>
   </div>
 </template>
 
