@@ -19,7 +19,7 @@ export default Vue.extend({
     };
   },
   methods: {
-    search(fieled, inputValue) {
+    filter(fieled, inputValue) {
       this.list = [];
       this.dublicateItems.forEach((item) => {
 
@@ -135,7 +135,7 @@ export default Vue.extend({
       :sortIcon="false"
       :handleSort="sort"
       :filterBy="['name', 'age']"
-      :handleFilter="search"
+      :handleFilter="filter"
       :bordered="true"
       :hover="true"
       :borderSpacing="false"
