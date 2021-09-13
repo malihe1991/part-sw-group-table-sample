@@ -1,6 +1,6 @@
 {
   "name": "part-sw-group-table-sample",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "",
   "main": "dist/part-sw-group-table.ssr.js",
   "browser": "dist/part-sw-group-table.esm.js",

@@ -98,7 +98,7 @@ data() {
     <part-sw-group-table-sample
       title="اطلاعات کاربر"
       :fields="['وزن', 'سن', 'جنسیت','نام']"
-      :items="orginalItems"
+      :items="newItems"
       :filterBy="['name', 'age']"
       :handleFilter="filter"
       // filter is your function that passed to handleFilter function.
