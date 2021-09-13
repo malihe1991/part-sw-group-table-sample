@@ -19,11 +19,11 @@ export default Vue.extend({
     };
   },
   methods: {
-    search(filed, inputValue) {
+    search(fieled, inputValue) {
       this.list = [];
       this.dublicateItems.forEach((item) => {
 
-        const itemValue = item[filed].toString();
+        const itemValue = item[fieled].toString();
         const value = inputValue.toString();
 
         if (itemValue.includes(value)) {
@@ -136,7 +136,6 @@ export default Vue.extend({
       :handleSort="sort"
       :filterBy="['name', 'age']"
       :handleFilter="search"
-      :rowIndex="true"
       :bordered="true"
       :hover="true"
       :borderSpacing="false"

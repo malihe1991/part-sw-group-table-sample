@@ -1,8 +1,6 @@
 /* container */
 .part-sw-group-table-sample {
     overflow-x: auto;
-    direction: rtl;
-    text-align: right;
 }
 
 
@@ -17,6 +15,7 @@
 .part-sw-group-table__filter {
     display: flex;
     justify-content: space-between;
+    direction: rtl;
 }
 
 .part-sw-group-table__filter-wrapper {

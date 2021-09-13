@@ -12,7 +12,6 @@ export default {
         title: String,
         items: Array,
         fields: Array,
-        rowIndex: Boolean,
         isSort: Boolean,
         sortIcon: Boolean,
         handleSort: Function,

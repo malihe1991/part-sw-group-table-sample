@@ -1,6 +1,6 @@
 # Part-sw-group-table-sample
 
-It is a dynamic table with sorting capability
+It is a dynamic table with sorting and filtering capability for Vue.js 😊
 
 ## Installation
 
@@ -11,7 +11,20 @@ npm install --save part-sw-group-table-sample
 
 ## Usage
 
+
 ```javascript
+// in main.js file
+
+import Vue from 'vue';
+import PartSwGroupTable from 'part-sw-group-table-sample';
+
+Vue.use(PartSwGroupTable);
+
+```
+
+```javascript
+// in your component
+
 data() {
     return {
       newItems: [
@@ -48,7 +61,8 @@ data() {
     :isSort="true"
     :sortIcon="true"
     :handleSort="sort"
-    // is a function with two parameter: 1-type [is number or string] 2-fieldName
+    // sort is your function that passed to handleSort function.
+    // sort should have two parameters: 1-type [is number or string] 2-fieldName
 />
 
 ```
@@ -68,12 +82,28 @@ data() {
     :isSort="true"
     :sortIcon="false"
     :handleSort="sort"
+    // sort is your function that passed to handleSort function.
+    // sort should have two parameters: 1-type [is number or string] 2-fieldName
     >
         <span slot="icon">
             <font-awesome-icon icon="sort" />
         </span>
 </part-sw-group-table-sample>
 
+```
+
+### Filtering
+
+```javascript
+    <part-sw-group-table-sample
+      title="اطلاعات کاربر"
+      :fields="['وزن', 'سن', 'جنسیت','نام']"
+      :items="orginalItems"
+      :filterBy="['name', 'age']"
+      :handleFilter="filter"
+      // filter is your function that passed to handleFilter function.
+      // filter should have two string parameters: 1-filterFieled 2-inputValue.
+    />
 ```
 
 ### Customize Classes
