@@ -2,9 +2,9 @@
   <div class="part-sw-group-table-sample">
     <h2 class="part-sw-group-table__title">{{title}}</h2>
 
-    <div class="part-sw-group-table__filter">
+    <div class="part-sw-group-table__filter" :class="{'part-sw-group-table--rtl': direction === 'rtl'}">
       <div class="part-sw-group-table__filter-wrapper">
-        <label class="part-sw-group-table__filter-label">فیلتر براساس:</label>
+        <label class="part-sw-group-table__filter-label">Filter By:</label>
         <select class="part-sw-group-table__filter-select" v-model="filterValue" :selected="filterValue">
           <option v-for="(feild, index) in filterBy" :key="index" :value="feild">{{feild}}</option>
         </select>
@@ -15,8 +15,8 @@
         type="text" 
         v-model="filterInputValue" 
         @input="handleFilter(filterValue, filterInputValue);" 
-        placeholder="جستجو..." 
-    />
+        :placeholder="filterPlaceholder" 
+      />
     </div>
 
     <table

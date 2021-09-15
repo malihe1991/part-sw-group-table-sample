@@ -7,14 +7,14 @@ export default Vue.extend({
     return {
       isAsc: false,
       orginalItems: [
-        { weight: 60, age: 20, gender: "female", name: "ملیحه" },
-        { weight: 40, age: 29, gender: "male", name: "میلاد" },
-        { weight: 36, age: 14, gender: "female", name: "صدف" },
+        { weight: 60, age: 20, gender: "female", name: "Ruby" },
+        { weight: 40, age: 29, gender: "male", name: "James" },
+        { weight: 36, age: 14, gender: "female", name: "Jessica" },
       ],
       dublicateItems: [
-        { weight: 60, age: 20, gender: "female", name: "ملیحه" },
-        { weight: 40, age: 29, gender: "male", name: "میلاد" },
-        { weight: 36, age: 14, gender: "female", name: "صدف" },
+        { weight: 60, age: 20, gender: "female", name: "Ruby" },
+        { weight: 40, age: 29, gender: "male", name: "James" },
+        { weight: 36, age: 14, gender: "female", name: "Jessica" },
       ],
     };
   },
@@ -22,9 +22,8 @@ export default Vue.extend({
     filter(fieled, inputValue) {
       this.list = [];
       this.dublicateItems.forEach((item) => {
-
-        const itemValue = item[fieled].toString();
-        const value = inputValue.toString();
+        const itemValue = item[fieled].toString().toLowerCase();
+        const value = inputValue.toString().toLowerCase();
 
         if (itemValue.includes(value)) {
           this.list.push(item);
@@ -123,12 +122,12 @@ export default Vue.extend({
 <template>
   <div id="app">
     <part-sw-group-table-sample
-      title="اطلاعات کاربر"
+      title="User Information"
       :fields="[
-        {key: 'weight', type: 'number', value: 'وزن'},
-        {key: 'age', type: 'number',  value: 'سن'},
-        {key: 'gender', type: 'string',  value: 'جنسیت'},
-        {key: 'name', type: 'string',  value: 'نام'}
+        {key: 'weight', type: 'number', value: 'Weight'},
+        {key: 'age', type: 'number',  value: 'Age'},
+        {key: 'gender', type: 'string',  value: 'Gender'},
+        {key: 'name', type: 'string',  value: 'Name'}
       ]"
       :items="orginalItems"
       :isSort="true"
@@ -142,19 +141,21 @@ export default Vue.extend({
       borderCollapse="no-collapse"
       backgroundChild="odd"
       textAlign="center"
+      direction="ltr"
+      filterPlaceholder="serach..."
     >
       <span slot="icon">^</span>
     </part-sw-group-table-sample>
   </div>
 </template>
 
-// :fields="['وزن', 'سن', 'جنسیت','نام']"
+// :fields="['Weight', 'Age', 'Gender','Name']"
 
 /* 
   :fields="[
-    {key: 'weight', type: 'number', value: 'وزن'},
-    {key: 'age', type: 'number',  value: 'سن'},
-    {key: 'gender', type: 'string',  value: 'جنسیت'},
-    {key: 'name', type: 'string',  value: 'نام'}
+    {key: 'weight', type: 'number', value: 'Weight'},
+    {key: 'age', type: 'number',  value: 'Age'},
+    {key: 'gender', type: 'string',  value: 'Gender'},
+    {key: 'name', type: 'string',  value: 'Name'}
   ]"
 */

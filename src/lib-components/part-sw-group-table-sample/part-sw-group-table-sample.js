@@ -22,7 +22,15 @@ export default {
         hover: Boolean,
         borderCollapse: String,
         backgroundChild: String,
-        textAlign: String
+        textAlign: String,
+        direction: {
+            type: String,
+            default: 'ltr'
+        },
+        filterPlaceholder: {
+            type: String,
+            default: 'search...'
+        }
     },
     methods: {
         updateData() {

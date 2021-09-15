@@ -15,12 +15,10 @@
 .part-sw-group-table__filter {
     display: flex;
     justify-content: space-between;
-    direction: rtl;
 }
 
 .part-sw-group-table__filter-wrapper {
     display: flex;
-    width: 100%;
 }
 
 .part-sw-group-table__filter-select {
@@ -50,6 +48,10 @@
 .part-sw-group-table {
     width: 100%;
     min-width: 600px;
+}
+
+.part-sw-group-table--rtl {
+    direction: rtl;
 }
 
 .part-sw-group-table--collapse {

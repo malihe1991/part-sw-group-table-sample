@@ -1,6 +1,6 @@
 # Part-sw-group-table-sample
 
-It is a dynamic table with sorting and filtering capability for Vue.js
+It is a dynamic table with sorting and filtering and rtl capability for Vue.js
 
 ## Installation
 
@@ -28,9 +28,9 @@ Vue.use(PartSwGroupTable);
 data() {
     return {
       newItems: [
-        { weight: 60, age: 20, gender: 'female', name: 'ملیحه',},
-        { weight: 40, age: 29, gender: 'male', name: 'میلاد'},
-        { weight: 36, age: 14, gender: 'female', name: 'صدف'}
+        { weight: 60, age: 20, gender: 'female', name: 'Ruby',},
+        { weight: 40, age: 29, gender: 'male', name: 'James'},
+        { weight: 36, age: 14, gender: 'female', name: 'Jessica'}
       ]
     };
   }
@@ -39,8 +39,8 @@ data() {
 
 ```javascript
 <part-sw-group-table-sample
-    title="اطلاعات کاربران"
-    :fields="['وزن', 'سن', 'جنسیت','نام']"
+    title="User Information"
+    :fields="['Weight', 'Age', 'Gender','Name']"
     :items="newItems"
  />
 
@@ -50,12 +50,12 @@ data() {
 
 ```javascript
 <part-sw-group-table-sample
-    title="اطلاعات کاربران"
+    title="User Information"
     :fields="[
-        {key: 'weight', type: 'number', value: 'وزن'},
-        {key: 'age', type: 'number',  value: 'سن'},
-        {key: 'gender', type: 'string',  value: 'جنسیت'},
-        {key: 'name', type: 'string',  value: 'نام'}
+        {key: 'weight', type: 'number', value: 'Weight'},
+        {key: 'age', type: 'number',  value: 'Age'},
+        {key: 'gender', type: 'string',  value: 'Gender'},
+        {key: 'name', type: 'string',  value: 'Name'}
       ]"
     :items="newItems"
     :isSort="true"
@@ -71,12 +71,12 @@ data() {
 
 ```javascript
 <part-sw-group-table-sample
-    title="اطلاعات کاربران"
+    title="User Information"
     :fields="[
-        {key: 'weight', type: 'number', value: 'وزن'},
-        {key: 'age', type: 'number',  value: 'سن'},
-        {key: 'gender', type: 'string',  value: 'جنسیت'},
-        {key: 'name', type: 'string',  value: 'نام'}
+        {key: 'weight', type: 'number', value: 'Weight'},
+        {key: 'age', type: 'number',  value: 'Age'},
+        {key: 'gender', type: 'string',  value: 'Gender'},
+        {key: 'name', type: 'string',  value: 'Name'}
     ]"
     :items="newItems"
     :isSort="true"
@@ -96,8 +96,8 @@ data() {
 
 ```javascript
     <part-sw-group-table-sample
-      title="اطلاعات کاربر"
-      :fields="['وزن', 'سن', 'جنسیت','نام']"
+      title="User Information"
+      :fields="['Weight', 'Age', 'Gender','Name']"
       :items="newItems"
       :filterBy="['name', 'age']"
       :handleFilter="filter"
@@ -110,14 +110,16 @@ data() {
 
 ```javascript
 <part-sw-group-table-sample
-    title="اطلاعات کاربران"
-    :fields="['وزن', 'سن', 'جنسیت','نام']"
+    title="User Information"
+    :fields="['Weight', 'Age', 'Gender','Name']"
     :bordered="true"
     :hover="true"
     :borderSpacing="false"
     borderCollapse="no-collapse" // or collapse or separate
     backgroundChild="odd" // or even
     textAlign="center" // right or left
+    direction="ltr" // or rtl
+    filterPlaceholder="serach..."
 />
 
 ```
