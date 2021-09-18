@@ -1,6 +1,6 @@
 {
   "name": "part-sw-group-table-sample",
-  "version": "0.0.17",
+  "version": "0.0.19",
   "description": "",
   "main": "dist/part-sw-group-table.ssr.js",
   "browser": "dist/part-sw-group-table.esm.js",
@@ -12,6 +12,7 @@
   ],
   "homepage": "https://github.com/malihe1991/part-sw-group-table-sample",
   "repository": "malihe1991/part-sw-group-table-sample",
+  "keywords": ["vue", "javascript", "css", "table", "dynamic"],
   "sideEffects": false,
   "scripts": {
     "serve": "vue-cli-service serve dev/serve.js",

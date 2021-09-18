@@ -30,6 +30,10 @@ export default {
         filterPlaceholder: {
             type: String,
             default: 'search...'
+        },
+        filterLabel: {
+            type: String,
+            default: 'Filter By:'
         }
     },
     methods: {

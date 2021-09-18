@@ -134,6 +134,8 @@ export default Vue.extend({
       :sortIcon="false"
       :handleSort="sort"
       :filterBy="['name', 'age']"
+      filterLabel='Filter By:'
+      filterPlaceholder="search..."
       :handleFilter="filter"
       :bordered="true"
       :hover="true"
@@ -142,7 +144,6 @@ export default Vue.extend({
       backgroundChild="odd"
       textAlign="center"
       direction="ltr"
-      filterPlaceholder="serach..."
     >
       <span slot="icon">^</span>
     </part-sw-group-table-sample>

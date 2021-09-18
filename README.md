@@ -1,6 +1,6 @@
 # Part-sw-group-table-sample
 
-It is a dynamic table with sorting and filtering and rtl capability for Vue.js
+It is a dynamic table with sorting and filtering and RTL capability for Vue.js
 
 ## Installation
 
@@ -62,7 +62,7 @@ data() {
     :sortIcon="true"
     :handleSort="sort"
     // sort is your function that passed to handleSort function.
-    // sort should have two parameters: 1-type [is number or string] 2-fieldName
+    // sort should have two string parameters: 1-type [is number or string] 2-fieldName
 />
 
 ```
@@ -83,7 +83,7 @@ data() {
     :sortIcon="false"
     :handleSort="sort"
     // sort is your function that passed to handleSort function.
-    // sort should have two parameters: 1-type [is number or string] 2-fieldName
+    // sort should have two string parameters: 1-type [is number or string] 2-fieldName
     >
         <span slot="icon">
             <font-awesome-icon icon="sort" />
@@ -100,6 +100,8 @@ data() {
       :fields="['Weight', 'Age', 'Gender','Name']"
       :items="newItems"
       :filterBy="['name', 'age']"
+      filterLabel='Filter By:' // this is by default
+      filterPlaceholder="search..." // this is by default
       :handleFilter="filter"
       // filter is your function that passed to handleFilter function.
       // filter should have two string parameters: 1-filterFieled 2-inputValue.
@@ -119,7 +121,6 @@ data() {
     backgroundChild="odd" // or even
     textAlign="center" // right or left
     direction="ltr" // or rtl
-    filterPlaceholder="serach..."
 />
 
 ```
