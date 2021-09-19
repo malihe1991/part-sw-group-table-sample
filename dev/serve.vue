@@ -132,11 +132,11 @@ export default Vue.extend({
       :items="orginalItems"
       :isSort="true"
       :sortIcon="false"
-      :handleSort="sort"
+      @handleSort="sort($event.type, $event.key)"
       :filterBy="['name', 'age']"
       filterLabel='Filter By:'
       filterPlaceholder="search..."
-      :handleFilter="filter"
+      @handleFilter="filter($event.fieled, $event.inputValue)"
       :bordered="true"
       :hover="true"
       :borderSpacing="false"

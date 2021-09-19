@@ -60,7 +60,7 @@ data() {
     :items="newItems"
     :isSort="true"
     :sortIcon="true"
-    :handleSort="sort"
+    @handleSort="sort($event.type, $event.key)"
     // sort is your function that passed to handleSort function.
     // sort should have two string parameters: 1-type [is number or string] 2-fieldName
 />
@@ -81,7 +81,7 @@ data() {
     :items="newItems"
     :isSort="true"
     :sortIcon="false"
-    :handleSort="sort"
+    @handleSort="sort($event.type, $event.key)"
     // sort is your function that passed to handleSort function.
     // sort should have two string parameters: 1-type [is number or string] 2-fieldName
     >
@@ -102,7 +102,7 @@ data() {
       :filterBy="['name', 'age']"
       filterLabel='Filter By:' // this is by default
       filterPlaceholder="search..." // this is by default
-      :handleFilter="filter"
+      @handleFilter="filter($event.filterFieled, $event.inputValue)"
       // filter is your function that passed to handleFilter function.
       // filter should have two string parameters: 1-filterFieled 2-inputValue.
     />

@@ -2,20 +2,28 @@
   <div class="part-sw-group-table-sample">
     <h2 class="part-sw-group-table__title">{{title}}</h2>
 
-    <div class="part-sw-group-table__filter" :class="{'part-sw-group-table--rtl': direction === 'rtl'}">
+    <div
+      v-if="filterBy"
+      class="part-sw-group-table__filter"
+      :class="{'part-sw-group-table--rtl': direction === 'rtl'}"
+    >
       <div class="part-sw-group-table__filter-wrapper">
         <label class="part-sw-group-table__filter-label">{{filterLabel}}</label>
-        <select class="part-sw-group-table__filter-select" v-model="filterValue" :selected="filterValue">
+        <select
+          class="part-sw-group-table__filter-select"
+          v-model="filterValue"
+          :selected="filterValue"
+        >
           <option v-for="(feild, index) in filterBy" :key="index" :value="feild">{{feild}}</option>
         </select>
       </div>
 
       <input
         class="part-sw-group-table__filter-input"
-        type="text" 
-        v-model="filterInputValue" 
-        @input="handleFilter(filterValue, filterInputValue);" 
-        :placeholder="filterPlaceholder" 
+        type="text"
+        v-model="filterInputValue"
+        @input="handleFilter()"
+        :placeholder="filterPlaceholder"
       />
     </div>
 

@@ -4,7 +4,7 @@ export default {
         return {
             newItems: this.items,
             newFields: this.fields,
-            filterValue: this.filterBy.length ? this.filterBy[0] : '',
+            filterValue: this.filterBy?.length ? this.filterBy[0] : '',
             filterInputValue: '',
         };
     },
@@ -14,9 +14,10 @@ export default {
         fields: Array,
         isSort: Boolean,
         sortIcon: Boolean,
-        handleSort: Function,
-        filterBy: Array,
-        handleFilter: Function,
+        filterBy: {
+            type: [Array, String],
+            default: ''
+        },
         bordered: Boolean,
         borderSpacing: Boolean,
         hover: Boolean,
@@ -40,11 +41,23 @@ export default {
         updateData() {
             this.newItems = this.items;
             this.newFields = this.fields;
-            this.filterValue = this.filterBy.length ? this.filterBy[0] : '';
+            this.filterValue = this.filterBy?.length ? this.filterBy[0] : '';
             this.filterInputValue = '';
+        },
+        handleFilter() {
+            this.$emit('handleFilter', {
+                filterFieled : this.filterValue,
+                inputValue: this.filterInputValue
+            })
+        },
+        handleSort(type, key) {
+            this.$emit('handleSort', {
+                type,
+                key
+            })
         }
     },
-    mounted(){
+    mounted() {
         this.updateData()
     },
     updated() {
