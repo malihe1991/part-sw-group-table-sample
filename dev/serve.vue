@@ -136,7 +136,7 @@ export default Vue.extend({
       :filterBy="['name', 'age']"
       filterLabel='Filter By:'
       filterPlaceholder="search..."
-      @handleFilter="filter($event.fieled, $event.inputValue)"
+      @handleFilter="filter($event.filterFieled, $event.inputValue)"
       :bordered="true"
       :hover="true"
       :borderSpacing="false"
